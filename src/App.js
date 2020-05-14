@@ -9,23 +9,9 @@ import { connect } from "react-redux";
 import * as actionCreators from "./store/actionCreators/index";
 
 class App extends Component {
-  /*state = {
-    products: []
-  };*/
-
   componentDidMount() {
     this.props.onInitFetch();
-    /* Axios.get("https://jsonplaceholder.typicode.com/users").then(res => {
-      this.setState({ products: res.data });
-    });*/
   }
-
-  /*handleAddToCart = (e, items) => {
-    let dupItems = [...this.state.cartItems];
-    dupItems.push(items);
-    this.setState({ cartItems: dupItems });
-    //  console.log("its=", this.state.cartItems);
-  };*/
 
   render() {
     return (

@@ -5,7 +5,6 @@ import { connect } from "react-redux";
 class CartItems extends Component {
   render() {
     let i = 0;
-    // console.log("cart=", this.props.items);
     const disp = this.props.items.map(item => {
       return (
         <article
@@ -22,7 +21,6 @@ class CartItems extends Component {
 }
 
 const mapStateToProps = state => {
-  //console.log("f", state.cartItems);
   const item = [...state.cartItems];
   return {
     items: item

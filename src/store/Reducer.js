@@ -4,31 +4,29 @@ const initialState = {
 };
 
 const reducer = (state = initialState, action) => {
-  //console.log("pau=", action.payload);
-  // console.log("carr=", state.cartItems);
-  const pay = [...state.cartItems.concat(action.payload)];
-  if (action.type === "addProduct") {
-    return {
-      ...state,
-      cartItems: pay
-    };
-  }
-  if (action.type === "deleteCartItems") {
-    const afterDeleted = [
-      ...state.cartItems.filter(item => {
-        return item.id !== action.itemId;
-      })
-    ];
-    return {
-      ...state,
-      cartItems: afterDeleted
-    };
-  }
-  if (action.type === "SETPRODUCTS") {
-    return {
-      ...state,
-      products: action.products
-    };
+  switch (action.type) {
+    case "addProduct":
+      const pay = [...state.cartItems.concat(action.payload)];
+      return {
+        ...state,
+        cartItems: pay
+      };
+    case "deleteCartItems":
+      const afterDeleted = [
+        ...state.cartItems.filter(item => {
+          return item.id !== action.itemId;
+        })
+      ];
+      return {
+        ...state,
+        cartItems: afterDeleted
+      };
+    case "SETPRODUCTS":
+      return {
+        ...state,
+        products: action.products
+      };
+    default:
   }
   return state;
 };

@@ -1,6 +1,8 @@
 import React, { Component } from "react";
 import "../components/Products.css";
 
+import * as actionCreators from "../store/actionCreators/index";
+
 import { connect } from "react-redux";
 
 class Products extends Component {
@@ -26,7 +28,7 @@ class Products extends Component {
 
 const mapDispatchToProps = dispatch => {
   return {
-    addProducts: items => dispatch({ type: "addProduct", payload: items })
+    addProducts: items => dispatch(actionCreators.addProductToCart(items))
   };
 };
 

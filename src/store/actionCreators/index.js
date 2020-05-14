@@ -1,1 +1,1 @@
-export { onInitialRender } from "./ActionCreators";
+export { onInitialRender, addProductToCart } from "./ActionCreators";

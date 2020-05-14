@@ -14,3 +14,7 @@ export const onInitialRender = () => {
     });
   };
 };
+
+export const addProductToCart = items => {
+  return { type: "addProduct", payload: items };
+};

@@ -9,9 +9,9 @@ import { connect } from "react-redux";
 import * as actionCreators from "./store/actionCreators/index";
 
 class App extends Component {
-  state = {
+  /*state = {
     products: []
-  };
+  };*/
 
   componentDidMount() {
     this.props.onInitFetch();

@@ -1,2 +1,0 @@
-# ApplicationWithMiddleware
-Created with CodeSandbox

@@ -1,0 +1,16 @@
+.ArticleStyle {
+  width: 330px;
+  height: 80px;
+  border-color: black;
+  background-color: gray;
+  margin: 20px;
+  text-align: center;
+  color: black;
+  padding: 25px;
+}
+.first {
+  height: 30px;
+  margin: 40px;
+  width: 100%;
+  border: 10px;
+}

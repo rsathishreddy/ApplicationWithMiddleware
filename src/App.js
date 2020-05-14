@@ -1,9 +1,12 @@
 import React, { Component } from "react";
-import Axios from "axios";
+//import Axios from "axios";
 import "./styles.css";
 
 import Products from "./components/Products";
 import CartItems from "./components/CartItems";
+
+import { connect } from "react-redux";
+import * as actionCreators from "./store/actionCreators/index";
 
 class App extends Component {
   state = {
@@ -11,9 +14,10 @@ class App extends Component {
   };
 
   componentDidMount() {
-    Axios.get("https://jsonplaceholder.typicode.com/users").then(res => {
+    this.props.onInitFetch();
+    /* Axios.get("https://jsonplaceholder.typicode.com/users").then(res => {
       this.setState({ products: res.data });
-    });
+    });*/
   }
 
   /*handleAddToCart = (e, items) => {
@@ -33,7 +37,7 @@ class App extends Component {
               <div className="col-md-8">
                 <h1>Items List </h1>
                 <hr />
-                <Products products={this.state.products} />
+                <Products products={this.props.products} />
               </div>
               <div className="cold-md-4">
                 <h1>shopping cart</h1>
@@ -48,4 +52,19 @@ class App extends Component {
   }
 }
 
-export default App;
+const mapStateToProps = state => {
+  return {
+    products: state.products
+  };
+};
+
+const mapDispatchToProps = dispatch => {
+  return {
+    onInitFetch: () => dispatch(actionCreators.onInitialRender())
+  };
+};
+
+export default connect(
+  mapStateToProps,
+  mapDispatchToProps
+)(App);

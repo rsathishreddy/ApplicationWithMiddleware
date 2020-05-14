@@ -1,5 +1,6 @@
 const initialState = {
-  cartItems: []
+  cartItems: [],
+  products: []
 };
 
 const reducer = (state = initialState, action) => {
@@ -21,6 +22,12 @@ const reducer = (state = initialState, action) => {
     return {
       ...state,
       cartItems: afterDeleted
+    };
+  }
+  if (action.type === "SETPRODUCTS") {
+    return {
+      ...state,
+      products: action.products
     };
   }
   return state;
